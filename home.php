@@ -1,57 +1,71 @@
 <!DOCTYPE html>
- <?php
-$name = $_POST["fullname"];
-$number = $_POST["number"];
-$username = $_POST["username"];
-$email = $_POST["myEmail"];
-$password = $_POST["myPassword"];
-$birthdate = $_POST["birthdate"];
-$gender = $_POST["gender"];
-$status = $_POST["status"];
-
-
+<?php
+$name = $_POST["fullname"] ?? "Guest";
+$number = $_POST["number"] ?? "N/A";
+$username = $_POST["username"] ?? "N/A";
+$email = $_POST["myEmail"] ?? "N/A";
+$password = $_POST["myPassword"] ?? "N/A";
+$birthdate = $_POST["birthdate"] ?? "N/A";
+$gender = $_POST["gender"] ?? "N/A";
+$status = $_POST["status"] ?? "N/A";
 ?>
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registration Complete</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h4>Hello <?= $name ?>
-        </h4>
+    <div class="success-shell">
+        <div class="success-card">
+            <div class="success-header">
+                <div class="success-icon">✓</div>
+                <div>
+                    <p class="eyebrow">Welcome aboard</p>
+                    <h1>Hello, <?= htmlspecialchars($name) ?></h1>
+                </div>
+            </div>
 
-        <h4>Age: <?= $number ?> years old
-        </h4>
+            <div class="status-badge">Registration Successful</div>
 
-        <h4>Username: <?= $username ?>
-        </h4>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="label">Age</span>
+                    <strong><?= htmlspecialchars($number) ?> years</strong>
+                </div>
+                <div class="info-item">
+                    <span class="label">Username</span>
+                    <strong><?= htmlspecialchars($username) ?></strong>
+                </div>
+                <div class="info-item">
+                    <span class="label">Email</span>
+                    <strong><?= htmlspecialchars($email) ?></strong>
+                </div>
+                <div class="info-item">
+                    <span class="label">Birthdate</span>
+                    <strong><?= htmlspecialchars($birthdate) ?></strong>
+                </div>
+                <div class="info-item">
+                    <span class="label">Gender</span>
+                    <strong><?= htmlspecialchars($gender) ?></strong>
+                </div>
+                <div class="info-item">
+                    <span class="label">Status</span>
+                    <strong><?= htmlspecialchars($status) ?></strong>
+                </div>
+            </div>
 
-        <h4>Email: <?= $email ?>
-        </h4>
+            <div class="password-box">
+                <span class="label">Password</span>
+                <strong><?= htmlspecialchars($password) ?></strong>
+            </div>
 
-        <h4>Password: <?= $password ?>
-        </h4>
+            <p class="thank-you">Thank you for registering with us.</p>
 
-        <h4>Birthdate: <?= $birthdate ?>
-        </h4>
-
-        <h4>Gender: <?= $gender ?>
-        </h4>
-
-        <h4>Status: <?= $status ?>
-        </h4>
-
-        <p>Registration Successful!
-        </p>
-
-        <p>Thank you for Registering.
-        </p>
-
-        <input type="button" value="Continue" class="button" onclick="window.location.href='signin.php'">
-
+            <button type="button" class="button" onclick="window.location.href='signin.php'">Continue</button>
+        </div>
     </div>
+</body>
 </html>
